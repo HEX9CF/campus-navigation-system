@@ -9,6 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * 路径视图
+ *
+ * @date 2024/09/05
+ */
 public class PathView extends JFrame{
     private Box boxForm;
     private Box boxStartDest;
@@ -29,7 +34,7 @@ public class PathView extends JFrame{
         setLayout(new FlowLayout());
         init();
         setTitle("路径查询");
-        setBounds(100, 100, 400, 400);
+        setBounds(100, 100, 400, 300);
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
@@ -61,6 +66,7 @@ public class PathView extends JFrame{
         boxStartDest.add(boxV2);
         boxForm.add(boxStartDest);
 
+        // 途经点
         boxForm.add(Box.createVerticalStrut(8));
         boxPass = Box.createHorizontalBox();
         boxPass.add(new JLabel("途经点"));
@@ -77,6 +83,7 @@ public class PathView extends JFrame{
         textAreaPass = new JTextArea(5, 20);
         boxForm.add(new JScrollPane(textAreaPass));
 
+        // 按钮
         boxForm.add(Box.createVerticalStrut(8));
         boxBtn = Box.createHorizontalBox();
         btnClearForm = new JButton("清空表单");
@@ -85,7 +92,7 @@ public class PathView extends JFrame{
         boxForm.add(boxBtn);
         boxBtn.add(Box.createHorizontalStrut(8));
         btnQueryPath = new JButton("查询路径");
-        btnQueryPath.addActionListener(new BtnQueryPathListener());
+        btnQueryPath.addActionListener(new BtnQueryPathListener(this));
         boxBtn.add(btnQueryPath);
 
         add(boxForm);

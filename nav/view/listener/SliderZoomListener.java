@@ -9,6 +9,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * 缩放滑块监听器
+ *
+ * @author HEX9CF
+ * @date 2024/09/05
+ */
 public class SliderZoomListener extends MouseAdapter implements ChangeListener {
     private HomeView view;
     private int prevValue = -1;
@@ -17,12 +23,22 @@ public class SliderZoomListener extends MouseAdapter implements ChangeListener {
         this.view = view;
     }
 
+    /**
+     * 状态已更改
+     *
+     * @param e e
+     */
     @Override
     public void stateChanged(ChangeEvent e) {
         JSlider slider = (JSlider) e.getSource();
         prevValue = slider.getValue();
     }
 
+    /**
+     * 鼠标释放
+     *
+     * @param e e
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         JSlider slider = (JSlider) e.getSource();

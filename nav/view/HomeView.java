@@ -7,6 +7,11 @@ import nav.view.listener.SliderZoomListener;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * 主页视图
+ *
+ * @date 2024/09/05
+ */
 public class HomeView extends JFrame {
     private JButton btnPathForm;
     private ImageIcon imgIcoMap;
@@ -17,7 +22,7 @@ public class HomeView extends JFrame {
     public HomeView() {
         setLayout(new BorderLayout());
         init();
-        setTitle("校园行走最优路径查询系统");
+        setTitle("汕头大学校园导航系统");
         setExtendedState(JFrame.MAXIMIZED_BOTH); // 窗口最大化
 //        setBounds(100, 100, 960, 600);
         setVisible(true);
@@ -29,12 +34,14 @@ public class HomeView extends JFrame {
         btnPathForm.addActionListener(new BtnPathViewListener());
         add(btnPathForm, BorderLayout.SOUTH);
 
+        // 地图
         imgIcoMap = new ImageIcon("image/map.jpg");
         imgMap = imgIcoMap.getImage();
         labelMap = new JLabel(imgIcoMap);
         labelMap.addMouseListener(new LabelMapDragListener(this));
-        add(labelMap, BorderLayout.CENTER);
+        add(new JScrollPane(labelMap), BorderLayout.CENTER);
 
+        // 缩放滑块
         sliderZoom = new JSlider(JSlider.VERTICAL, 0, 100, 100);
         sliderZoom.setMajorTickSpacing(10);
         sliderZoom.setMinorTickSpacing(1);

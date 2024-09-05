@@ -6,6 +6,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * 途经点添加按钮监听器
+ *
+ * @date 2024/09/05
+ */
 public class BtnAddPassListener implements ActionListener {
     private final PathView view;
 
