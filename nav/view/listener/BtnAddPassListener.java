@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BtnAddPassListener implements ActionListener {
-    private PathView view;
+    private final PathView view;
 
     public BtnAddPassListener(PathView view) {
         this.view = view;

@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
 
 public class SliderZoomListener extends MouseAdapter implements ChangeListener {
     private HomeView view;
-    private int lastValue = -1;
+    private int prevValue = -1;
 
     public SliderZoomListener(HomeView view) {
         this.view = view;
@@ -20,14 +20,14 @@ public class SliderZoomListener extends MouseAdapter implements ChangeListener {
     @Override
     public void stateChanged(ChangeEvent e) {
         JSlider slider = (JSlider) e.getSource();
-        lastValue = slider.getValue();
+        prevValue = slider.getValue();
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         JSlider slider = (JSlider) e.getSource();
         int value = slider.getValue();
-        if(value == lastValue) {
+        if(value == prevValue) {
             if(value == 0) {
                 value = 1;
             }

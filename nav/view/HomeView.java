@@ -1,6 +1,7 @@
 package nav.view;
 
 import nav.view.listener.BtnPathViewListener;
+import nav.view.listener.LabelMapDragListener;
 import nav.view.listener.SliderZoomListener;
 
 import javax.swing.*;
@@ -31,9 +32,10 @@ public class HomeView extends JFrame {
         imgIcoMap = new ImageIcon("image/map.jpg");
         imgMap = imgIcoMap.getImage();
         labelMap = new JLabel(imgIcoMap);
+        labelMap.addMouseListener(new LabelMapDragListener(this));
         add(labelMap, BorderLayout.CENTER);
 
-        sliderZoom = new JSlider(JSlider.VERTICAL, 0, 100, 50);
+        sliderZoom = new JSlider(JSlider.VERTICAL, 0, 100, 100);
         sliderZoom.setMajorTickSpacing(10);
         sliderZoom.setMinorTickSpacing(1);
         sliderZoom.setPaintTicks(true);
