@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BtnClearFormListener implements ActionListener {
-    PathView view;
+    private PathView view;
 
     public BtnClearFormListener(PathView view) {
         this.view = view;
