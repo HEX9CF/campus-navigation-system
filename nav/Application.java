@@ -1,5 +1,7 @@
 package nav;
 
+import nav.view.HomeView;
+
 /**
  * 应用
  *
@@ -7,6 +9,7 @@ package nav;
  */
 public class Application {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+//        System.out.println("Hello World!");
+        HomeView homeView = new HomeView();
     }
 }
