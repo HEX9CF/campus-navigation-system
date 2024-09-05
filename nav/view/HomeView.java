@@ -39,7 +39,9 @@ public class HomeView extends JFrame {
         sliderZoom.setPaintTicks(true);
         sliderZoom.setPaintLabels(true);
         sliderZoom.setSnapToTicks(true);
-        sliderZoom.addChangeListener(new SliderZoomListener(this));
+        SliderZoomListener sliderZoomListener = new SliderZoomListener(this);
+        sliderZoom.addChangeListener(sliderZoomListener);
+        sliderZoom.addMouseListener(sliderZoomListener);
         add(sliderZoom, BorderLayout.EAST);
 
         validate();
