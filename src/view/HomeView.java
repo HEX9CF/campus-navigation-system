@@ -1,8 +1,8 @@
-package nav.view;
+package src.view;
 
-import nav.view.listener.BtnPathViewListener;
-import nav.view.listener.LabelMapDragListener;
-import nav.view.listener.SliderZoomListener;
+import src.view.listener.BtnPathViewListener;
+import src.view.listener.LabelMapDragListener;
+import src.view.listener.SliderZoomListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +42,7 @@ public class HomeView extends JFrame {
         add(new JScrollPane(labelMap), BorderLayout.CENTER);
 
         // 缩放滑块
-        sliderZoom = new JSlider(JSlider.VERTICAL, 0, 100, 100);
+        sliderZoom = new JSlider(JSlider.VERTICAL, 0, 50, 30);
         sliderZoom.setMajorTickSpacing(10);
         sliderZoom.setMinorTickSpacing(1);
         sliderZoom.setPaintTicks(true);

@@ -1,6 +1,6 @@
-package nav.view.listener;
+package src.view.listener;
 
-import nav.view.PathView;
+import src.view.PathView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,6 +1,7 @@
-package nav.view.listener;
+package src.view.listener;
 
-import nav.view.PathView;
+import src.controller.PathAlgorithm;
+import src.view.PathView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,18 +15,18 @@ import java.util.ArrayList;
  */
 public class BtnQueryPathListener implements ActionListener {
     private final PathView view;
-    private String startPoint;
-    private String destPoint;
-    private ArrayList<String> passingPoints;
 
     public BtnQueryPathListener(PathView view) {
         this.view = view;
     }
+    private PathAlgorithm pathAlgorithm = new PathAlgorithm();
+    ArrayList<String> passingPoints;
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        startPoint = view.getTextFieldStart().getText();
-        destPoint = view.getTextFieldDest().getText();
+        String startPoint = view.getTextFieldStart().getText();
+        String destPoint = view.getTextFieldDest().getText();
+        passingPoints = view.getPassingPoints();
 
         // 判断起点和终点是否为空
         if(startPoint.isEmpty() || destPoint.isEmpty()) {
@@ -39,15 +40,7 @@ public class BtnQueryPathListener implements ActionListener {
             return;
         }
 
-        JOptionPane.showMessageDialog(null, "查询路径", "提示", JOptionPane.INFORMATION_MESSAGE);
-
-        // debug
-        System.out.println("起点：" + startPoint);
-        System.out.println("终点：" + destPoint);
-        System.out.println("途经点：");
-        for(String pass : view.getPassingPoints()) {
-            System.out.println(pass);
-        }
+        JOptionPane.showMessageDialog(null, pathAlgorithm.FindMinestDistance(startPoint, destPoint,passingPoints), "提示", JOptionPane.INFORMATION_MESSAGE);
     }
 }
 

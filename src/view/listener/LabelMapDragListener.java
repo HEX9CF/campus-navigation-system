@@ -1,6 +1,6 @@
-package nav.view.listener;
+package src.view.listener;
 
-import nav.view.HomeView;
+import src.view.HomeView;
 
 import javax.swing.*;
 import java.awt.*;

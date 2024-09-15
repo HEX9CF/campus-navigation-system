@@ -1,9 +1,8 @@
-package nav.view;
+package src.view;
 
-import nav.view.listener.BtnAddPassListener;
-import nav.view.listener.BtnClearFormListener;
-import nav.view.listener.BtnPathViewListener;
-import nav.view.listener.BtnQueryPathListener;
+import src.view.listener.BtnAddPassListener;
+import src.view.listener.BtnClearFormListener;
+import src.view.listener.BtnQueryPathListener;
 
 import javax.swing.*;
 import java.awt.*;

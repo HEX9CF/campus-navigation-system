@@ -1,6 +1,7 @@
-package nav.view.listener;
+package src.view.listener;
 
-import nav.view.PathView;
+import src.controller.PathAlgorithm;
+import src.view.PathView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +14,7 @@ import java.awt.event.ActionListener;
  */
 public class BtnAddPassListener implements ActionListener {
     private final PathView view;
-
+    private PathAlgorithm path_algorithm = new PathAlgorithm();
     public BtnAddPassListener(PathView view) {
         this.view = view;
     }
@@ -21,7 +22,7 @@ public class BtnAddPassListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String passingPoint = view.getTextFieldPass().getText();
-
+        String[] splitInput = passingPoint.split(" ");
         // 判断是否重复添加
         if(view.getPassingPoints().contains(passingPoint)) {
             JOptionPane.showMessageDialog(null, "途经点已存在，不能重复添加！", "警告", JOptionPane.WARNING_MESSAGE);
@@ -42,8 +43,10 @@ public class BtnAddPassListener implements ActionListener {
             return;
         }
 
+        for(String point : splitInput){
+            view.getPassingPoints().add(point);
+        }
         // 添加途经点
-        view.getPassingPoints().add(passingPoint);
         view.getTextAreaPass().append(passingPoint + "\n");
     }
 }
